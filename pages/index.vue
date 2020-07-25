@@ -28,7 +28,19 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      title: 'Home',
+    };
+  },
+  head() {
+    return {
+      title: `${this.title} - uwu land`,
+      meta: [],
+    };
+  },
+};
 </script>
 
 <style>
