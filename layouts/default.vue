@@ -37,7 +37,7 @@
         </button>
       </div>
     </nav>
-    <div class="nuxt">
+    <div class="nuxt bg-light">
       <Nuxt />
     </div>
   </div>
