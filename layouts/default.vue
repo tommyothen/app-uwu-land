@@ -17,12 +17,9 @@
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="navbar-nav">
-          <li class="nav-item active">
+          <li class="nav-item">
             <nuxt-link class="nav-link" to="/">
               Home
-              <span class="sr-only">
-                (current)
-              </span>
             </nuxt-link>
           </li>
           <li class="nav-item">
@@ -31,9 +28,18 @@
             </nuxt-link>
           </li>
         </ul>
+        <button
+          class="btn btn-outline-success ml-auto"
+          type="button"
+          @click="$store.state.users.user ? logout() : login()"
+        >
+          <span>Log {{ this.$store.state.users.user ? 'Out' : 'In' }}</span>
+        </button>
       </div>
     </nav>
-    <Nuxt />
+    <div class="nuxt">
+      <Nuxt />
+    </div>
   </div>
 </template>
 
@@ -50,6 +56,7 @@ html {
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 *,
@@ -61,6 +68,12 @@ html {
 
 .nav {
   height: 5vh;
+  width: 100vw;
+}
+
+.nuxt {
+  height: 95vh;
+  overflow: auto;
 }
 
 .button--green {
@@ -92,3 +105,38 @@ html {
   background-color: #35495e;
 }
 </style>
+
+<script>
+import { setTimeout } from 'timers';
+import Cookie from 'js-cookie';
+import { firebase } from '@/services/firebase/firebase';
+
+export default {
+  data: () => ({
+    isError: false,
+    errMsg: '',
+    title: 'Log in',
+  }),
+  methods: {
+    login() {
+      this.$store
+        .dispatch('users/login')
+        .then(this.$router.push('/profile'))
+        .catch((error) => {
+          this.isError = true;
+          this.errMsg = error.code;
+
+          setTimeout(() => {
+            this.isError = false;
+          }, 5000);
+        });
+    },
+    async logout() {
+      await firebase.auth().signOut();
+      await Cookie.remove('access_token');
+
+      location.href = '/';
+    },
+  },
+};
+</script>

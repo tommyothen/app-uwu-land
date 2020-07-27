@@ -57,6 +57,15 @@ export default {
     '@nuxtjs/axios',
   ],
   /*
+   ** Firebase module configuration
+   */
+  /*
+   ** Router settings
+   */
+  router: {
+    middleware: ['authenticated']
+  },
+  /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
@@ -66,4 +75,4 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
-}
+};
