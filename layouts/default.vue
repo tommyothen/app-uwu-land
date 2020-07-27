@@ -1,5 +1,38 @@
 <template>
   <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nuxt-link class="navbar-brand" to="/">
+        <Logo style="height: 3vh; width: 3vh;" />
+      </nuxt-link>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <nuxt-link class="nav-link" to="/">
+              Home
+              <span class="sr-only">
+                (current)
+              </span>
+            </nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link class="nav-link" to="/api">
+              Documentation
+            </nuxt-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <Nuxt />
   </div>
 </template>
@@ -15,6 +48,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
 }
 
 *,
@@ -22,6 +57,10 @@ html {
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.nav {
+  height: 5vh;
 }
 
 .button--green {
