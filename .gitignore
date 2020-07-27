@@ -90,4 +90,4 @@ sw.*
 *.swp
 
 # Firebase files
-assets/firebase/
+services/firebase
