@@ -1,43 +1,9 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <nuxt-link class="navbar-brand" to="/">
-        <Logo style="height: 3vh; width: 3vh;" />
-      </nuxt-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div id="navbarNav" class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <nuxt-link class="nav-link" to="/">
-              Home
-            </nuxt-link>
-          </li>
-          <li class="nav-item">
-            <nuxt-link class="nav-link" to="/api">
-              Documentation
-            </nuxt-link>
-          </li>
-        </ul>
-        <button
-          class="btn btn-outline-success ml-auto"
-          type="button"
-          @click="$store.state.users.user ? logout() : login()"
-        >
-          <span>Log {{ this.$store.state.users.user ? 'Out' : 'In' }}</span>
-        </button>
-      </div>
-    </nav>
-    <div class="nuxt bg-light">
+    <div class="nav-bar">
+      <NavBar />
+    </div>
+    <div class="nuxt">
       <Nuxt />
     </div>
   </div>
@@ -59,6 +25,12 @@ html {
   overflow: hidden;
 }
 
+body {
+  background-color: var(--bg);
+  color: var(--color);
+  transition: background-color 0.3s;
+}
+
 *,
 *::before,
 *::after {
@@ -66,9 +38,10 @@ html {
   margin: 0;
 }
 
-.nav {
+.nav-bar {
   height: 5vh;
   width: 100vw;
+  color: var(--color);
 }
 
 .nuxt {
@@ -107,36 +80,11 @@ html {
 </style>
 
 <script>
-import { setTimeout } from 'timers';
-import Cookie from 'js-cookie';
-import { firebase } from '@/services/firebase/firebase';
+import NavBar from '@/components/NavBar';
 
 export default {
-  data: () => ({
-    isError: false,
-    errMsg: '',
-    title: 'Log in',
-  }),
-  methods: {
-    login() {
-      this.$store
-        .dispatch('users/login')
-        .then(this.$router.push('/profile'))
-        .catch((error) => {
-          this.isError = true;
-          this.errMsg = error.code;
-
-          setTimeout(() => {
-            this.isError = false;
-          }, 5000);
-        });
-    },
-    async logout() {
-      await firebase.auth().signOut();
-      await Cookie.remove('access_token');
-
-      location.href = '/';
-    },
+  components: {
+    NavBar,
   },
 };
 </script>

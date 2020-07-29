@@ -17,13 +17,13 @@
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "cookieparser": "^0.1.0",
-    "dark-mode-switch": "^1.0.0",
     "firebase": "^7.17.1",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^2.2.0",
     "nuxt": "^2.13.0"
   },
   "devDependencies": {
+    "@nuxtjs/color-mode": "^1.0.2",
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@vue/test-utils": "^1.0.3",
