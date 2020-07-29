@@ -18,13 +18,17 @@
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <nuxt-link class="nav-link nav-text txt-center" to="/">
-              Home
+            <nuxt-link class="nav-link" to="/">
+              <p class="nav-text txt-center">
+                Home
+              </p>
             </nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link class="nav-link txt-center" to="/api">
-              Documentation
+            <nuxt-link class="nav-link" to="/api">
+              <p class="nav-text txt-center">
+                Documentation
+              </p>
             </nuxt-link>
           </li>
         </ul>
@@ -45,9 +49,20 @@
 
 <style>
 .txt-center {
-  line-height: 2em;
+  line-height: 100%;
   text-align: center;
   color: var(--color);
+}
+
+.nav-text {
+  margin: 0;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
 }
 </style>
 
