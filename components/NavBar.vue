@@ -17,14 +17,14 @@
       </button>
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="navbar-nav">
-          <li class="nav-item universal-center">
-            <nuxt-link class="nav-link" to="/">
-              <p class="nav-text">Home</p>
+          <li class="nav-item">
+            <nuxt-link class="nav-link nav-text txt-center" to="/">
+              Home
             </nuxt-link>
           </li>
-          <li class="nav-item universal-center">
-            <nuxt-link class="nav-link" to="/api">
-              <p class="nav-text">Documentation</p>
+          <li class="nav-item">
+            <nuxt-link class="nav-link txt-center" to="/api">
+              Documentation
             </nuxt-link>
           </li>
         </ul>
@@ -44,12 +44,9 @@
 </template>
 
 <style>
-.universal-center {
-  display: grid;
-  place-items: center;
-}
-
-.nav-text {
+.txt-center {
+  line-height: 2em;
+  text-align: center;
   color: var(--color);
 }
 </style>
@@ -72,7 +69,10 @@ export default {
     login() {
       this.$store
         .dispatch('users/login')
-        .then(this.$router.push('/profile'))
+        .then(() => {
+          this.$router.push('/profile');
+          firebase.analytics().logEvent('login', { method: 'Google' });
+        })
         .catch((error) => {
           this.isError = true;
           this.errMsg = error.code;
@@ -85,6 +85,7 @@ export default {
     async logout() {
       await firebase.auth().signOut();
       await Cookie.remove('access_token');
+      firebase.analytics().logEvent('logout');
 
       location.href = '/';
     },
