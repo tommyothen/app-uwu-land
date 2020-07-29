@@ -31,6 +31,13 @@
               </p>
             </nuxt-link>
           </li>
+          <li v-if="$store.state.users.user" class="nav-item">
+            <nuxt-link class="nav-link" to="/profile">
+              <p class="nav-text txt-center">
+                Profile
+              </p>
+            </nuxt-link>
+          </li>
         </ul>
         <div class="d-flex ml-auto">
           <ColorModePicker style="height: 100%;" />
