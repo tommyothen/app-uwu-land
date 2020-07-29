@@ -65,9 +65,6 @@ export default {
     '@nuxtjs/axios',
   ],
   /*
-   ** Firebase module configuration
-   */
-  /*
    ** Router settings
    */
   router: {
