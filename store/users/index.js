@@ -21,13 +21,31 @@ export const actions = {
 
       // JWT from firebase
       const token = await firebase.auth().currentUser.getIdToken();
-      const { email, uid } = firebase.auth().currentUser;
+      const { email, uid, displayName, photoURL } = firebase.auth().currentUser;
 
       // Set cookies
       Cookie.set('access_token', token);
 
+      // Add user to firebase
+      firebase.firestore().collection('users').doc(uid).set(
+        {
+          uid,
+          email,
+          displayName,
+          photoURL,
+        },
+        {
+          merge: true,
+        }
+      );
+
+      const keysRef = firebase.firestore().collection('apikeys');
+      const snapshot = await keysRef.where('author', '==', uid).get();
+
+      if (!snapshot.empty) Cookie.set('x-api-key', snapshot.docs[0].data().key);
+
       // Set the user login
-      commit('SET_USER', { email, uid });
+      commit('SET_USER', { email, uid, displayName, photoURL });
     } catch (error) {
       throw error;
     }
