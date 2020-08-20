@@ -1,21 +1,16 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
       <h1 class="title">
         uwu
       </h1>
+      <ShortenLink />
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
+        <nuxt-link class="button--green" to="/api">
           Documentation
-        </a>
+        </nuxt-link>
         <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="https://github.com/DaSushiAsian/uwu-land"
           target="_blank"
           rel="noopener noreferrer"
           class="button--grey"
