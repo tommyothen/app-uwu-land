@@ -107,6 +107,7 @@ export default {
     async logout() {
       await firebase.auth().signOut();
       await Cookie.remove('access_token');
+      await Cookie.remove('x-api-key');
       firebase.analytics().logEvent('logout');
 
       location.href = '/';
