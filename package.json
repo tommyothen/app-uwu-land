@@ -14,17 +14,17 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.1",
-    "bootstrap": "^4.5.0",
-    "bootstrap-vue": "^2.15.0",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.16.0",
     "cookieparser": "^0.1.0",
-    "firebase": "^7.17.1",
+    "firebase": "^7.19.0",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^2.2.0",
-    "nuxt": "^2.13.0",
+    "nuxt": "^2.14.3",
     "v-clipboard": "^2.2.3"
   },
   "devDependencies": {
-    "@nuxtjs/color-mode": "^1.0.2",
+    "@nuxtjs/color-mode": "^1.0.3",
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@vue/test-utils": "^1.0.3",
