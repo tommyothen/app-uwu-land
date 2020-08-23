@@ -1,6 +1,6 @@
 <template>
   <div>
-    Profile :D
+    WIP, will add soon
   </div>
 </template>
 
