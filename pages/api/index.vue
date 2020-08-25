@@ -6,7 +6,7 @@
         API
       </h1>
       <p>
-        WIP
+        WIP, will be worked on very soon.
       </p>
     </div>
   </div>
