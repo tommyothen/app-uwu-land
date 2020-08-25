@@ -16,7 +16,7 @@
             variant="outline-secondary"
             @mouseover="hover = true"
             @mouseleave="hover = false"
-            @click="!busy ? '' : !recieved ? sendForm() : copyURL()"
+            @click="busy ? '' : !recieved ? sendForm() : copyURL()"
           >
             <b-icon
               :icon="
