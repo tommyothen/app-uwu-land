@@ -10,8 +10,6 @@ RUN npm install
 
 COPY . .
 
-RUN gcloud kms decrypt --ciphertext-file=./services/firebase/firebase.js.enc --plaintext-file=./services/firebase/firebase.js --location=global --keyring=uwu-land-frontend --key=cloudbuild-firebase-service-account
-
 RUN npm run build
 
 CMD [ "npm", "run", "start" ]
