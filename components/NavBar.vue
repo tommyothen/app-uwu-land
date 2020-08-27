@@ -43,6 +43,7 @@
           <ColorModePicker style="height: 100%;" />
           <button
             class="btn btn-outline-success"
+            disabled
             type="button"
             @click="$store.state.users.user ? logout() : login()"
           >
