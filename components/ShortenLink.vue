@@ -16,16 +16,21 @@
             variant="outline-secondary"
             @mouseover="hover = true"
             @mouseleave="hover = false"
-            @click="busy ? '' : !recieved ? sendForm() : copyURL()"
+            @click="
+              busy ? '' : !recieved ? (validURL ? sendForm() : '') : copyURL()
+            "
           >
             <b-icon
               :icon="
-                hover
+                busy
+                  ? 'arrow-clockwise'
+                  : hover
                   ? `${recieved ? 'file-earmark' : 'cursor'}-fill`
                   : recieved
                   ? 'file-earmark'
                   : 'cursor'
               "
+              :animation="busy ? 'spin' : ''"
             ></b-icon>
           </b-button>
         </b-input-group-append>
