@@ -1,6 +1,9 @@
 <template>
   <div>
-    <b-nav-item-dropdown text="🌙" class="style-dropdown">
+    <b-nav-item-dropdown class="style-dropdown">
+      <template v-slot:button-content>
+        <b-icon icon="moon" aria-hidden="true" flip-h></b-icon>
+      </template>
       <b-dropdown-item
         v-for="color of colors"
         :key="color"
