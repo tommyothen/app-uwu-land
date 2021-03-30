@@ -9,7 +9,9 @@
           type="url"
           placeholder="Long URL"
           :state="validURL"
+          :readonly="recieved"
           style="color: var(--color);"
+          @click="!busy ? (recieved ? copyURLandWait() : '') : ''"
         ></b-form-input>
         <b-input-group-append>
           <b-button
@@ -52,6 +54,9 @@ export default {
       hover: false,
       url: '',
       recieved: false,
+      dismissSecs: 2,
+      dismissCountDown: 0,
+      error: '',
     };
   },
   computed: {
@@ -114,6 +119,21 @@ export default {
       this.$clipboard(this.url);
       this.recieved = false;
       this.url = '';
+      this.dismissCountDown = this.dismissSecs;
+    },
+    async copyURLandWait() {
+      this.$clipboard(this.url);
+
+      this.dismissCountDown = this.dismissSecs;
+      await new Promise((resolve) =>
+        setTimeout(resolve, this.dismissSecs * 1000)
+      );
+
+      this.recieved = false;
+      this.url = '';
+    },
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
     },
   },
 };
