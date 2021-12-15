@@ -13,11 +13,11 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.1",
+    "@nuxtjs/axios": "^5.12.3",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
     "cookieparser": "^0.1.0",
-    "firebase": "^7.19.0",
+    "firebase": "^8.0.1",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^2.2.0",
     "nuxt": "^2.14.3",
