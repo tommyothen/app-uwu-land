@@ -20,7 +20,7 @@
     "firebase": "^9.6.5",
     "js-cookie": "^2.2.1",
     "jwt-decode": "^2.2.0",
-    "nuxt": "^2.14.3",
+    "nuxt": "^2.15.8",
     "v-clipboard": "^2.2.3"
   },
   "devDependencies": {
