@@ -15,7 +15,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.3",
     "bootstrap": "^4.6.1",
-    "bootstrap-vue": "^2.16.0",
+    "bootstrap-vue": "^2.22.0",
     "cookieparser": "^0.1.0",
     "firebase": "^9.6.5",
     "js-cookie": "^2.2.1",
